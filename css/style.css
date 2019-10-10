@@ -1,0 +1,47 @@
+html {
+    height: 100%;
+}
+
+body {
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background: #FFFAFA;
+}
+
+#menu {
+    margin: auto;
+    width: 100%;
+    min-height: 37px;
+    background: red;
+}
+
+#winkelmandje {
+    float: right;
+    width: auto;
+    min-height: 37px;
+    background: red;
+}
+
+#center {
+    padding: 20px;
+    width: 70%;
+    min-height: 300px;
+}
+
+#footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    height: 30px;
+    width: 100%;
+    background: red;
+}
+
+.text {
+    color: #000;
+    text-decoration: none;
+    font: normal 12px Verdana;
+}
