@@ -1,7 +1,7 @@
 <?php
 
     $query = "SELECT * FROM products where naam = 'Cola'";
-    $result = mysqli_query($conn, $query) or die ("FOUT: " . mysqli_error());
+$result = mysqli_query($conn, $query) or die ("FOUT: " . mysqli_error($conn));
 
 ?>
 
@@ -25,7 +25,7 @@
 <a href="#">BESTELLEN</a>
 
 <?php
-
+/*
 function winkelmandje(){
 
 }
@@ -34,4 +34,4 @@ function product_edit(){
 
 }
 
-
+*/
