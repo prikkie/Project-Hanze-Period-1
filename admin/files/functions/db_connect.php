@@ -1,8 +1,8 @@
 <?php
 $dbservername = "localhost";
-$dbusername = "u636479626_pro";
-$dbpassword = "F08@q>91?";
-$database = "u636479626_project";
+$dbusername = "id141058_project";
+$dbpassword = "1rick5";
+$database = "id141058_project";
 
 // Create connection
 $conn = new mysqli($dbservername, $dbusername, $dbpassword, $database);

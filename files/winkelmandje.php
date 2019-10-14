@@ -1,37 +1,36 @@
 <?php
-
-    $query = "SELECT * FROM products where naam = 'Cola'";
-$result = mysqli_query($conn, $query) or die ("FOUT: " . mysqli_error($conn));
-
-?>
-
+//
+//    $query = "SELECT * FROM products";
+//    $result = mysqli_query($conn, $query) or die ("FOUT: " . mysqli_error());
+//    foreach($result as $row){
+//        echo $row['naam'];
+//    }
+//?>
 <h2>Winkelmandje</h2>
 <?php
-    echo $_SESSION["product_id"];
+$query = "SELECT * FROM products";
+$result = mysqli_query($conn, $query) or die ("FOUT: " . mysqli_error());
+if (mysqli_num_rows($result) > 0){
+while ($row = mysqli_fetch_array($result)){
 ?>
-
-    <ul>
-        <li>Subtotaal:</li>
-        <li>€ 0,00</li>
-    </ul>
-    <ul>
-        <li>Bezorgkosten</li>
-        <li>€ 0,00</li>
-    </ul>
-    <ul>
-        <li>Totaal prijs</li>
-        <li>€ 0,00</li>
-    </ul>
-<a href="#">BESTELLEN</a>
-
-<?php
-/*
-function winkelmandje(){
-
-}
-
-function product_edit(){
-
-}
-
-*/
+<form method="post" action="#">
+    <table>
+        <tr>
+            <td>Product</td>
+            <td><?php echo $row["naam"]; ?></td>
+            <td>Prijs</td>
+            <td><?php echo $row["prijs"]; ?></td>
+        </tr>
+        <?php }
+        } ?>
+        <tr>
+            <td>NULL</td>
+            <td>NULL</td>
+            <td>Totaalprijs</td>
+            <td>$totaalprijs_gekozen_producten</td>
+        </tr>
+        <tr>
+            <td><a href="#">Bestellen!</a></td>
+        </tr>
+    </table>
+</form>

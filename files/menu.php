@@ -2,7 +2,7 @@
 
 <div class="topnav" id="myTopnav">
     <a href="home" class="active">Home</a>
-    <a href="products">Producten</a>
+    <a href="producten">Producten</a>
     <a href="home2">Home 2</a>
 
     <?php
