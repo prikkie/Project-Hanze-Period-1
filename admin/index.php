@@ -22,7 +22,3 @@ if (isset($_GET['nav']) && file_exists('files/' . $_GET['nav'] . '.php')) {
         }
         ?>
     </div>
-    <div id="winkelmandje"><?php include 'files/winkelmandje.php'; ?></div>
-    <div id="footer"><?php include 'files/footer.php'; ?></div>
-<?php
-?>
