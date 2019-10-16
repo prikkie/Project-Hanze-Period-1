@@ -1,40 +1,20 @@
 <?php
-include 'db_connect.php';
 if (!isset($_SESSION)) {
     session_start();
 }
 
 function do_alert($msg)
 {
-
     echo '<script type="text/javascript">alert("' . $msg . '"); </script>';
-
 }
 
-function getConnection()
+
+function login_admin($gebruikersnaam, $wachtwoord)
 {
-    $dbservername = "localhhost";
-    $dbusername = "id141058_project";
-    $dbpassword = "1rick5";
-    $database = "id141058_project";
-
-// Create connection
-    $conn = new mysqli($dbservername, $dbusername, $dbpassword, $database);
-
-// Check connection
-    if (!$conn) {
-        die('Could not connect: ' . mysqli_error($conn));
-    }
-
-}
-
-function login_admin($email, $password)
-{
-    include 'db_connect.php';
     $user_ip = (sha1($_SERVER['REMOTE_ADDR']));
     $session_id = rand(1000, 1000000);
 
-    $query = "SELECT * FROM leden WHERE email = '" . $email . "' AND password = '" . $password . "' AND administrator = 'yes'";
+    $query = "SELECT * FROM users WHERE gebruikersnaam = '" . $gebruikersnaam . "' AND wachtwoord = '" . $wachtwoord . "' AND recht = 'a'";
     $result = mysqli_query($conn, $query) or die ("FOUT: " . mysqli_error($conn));
 
 
@@ -42,16 +22,14 @@ function login_admin($email, $password)
 
     if ($total == 1) {
         foreach ($result as $row) {
-            $admin = $row['administrator'];
-            $account_id = $row['id'];
-            $naam = $row['naam'];
+            $_SESSION['recht'] = $row['recht'];
+            $_SESSION['account_id'] = $row['id'];
+            $_SESSION['naam'] = $row['naam'];
         }
         $_SESSION['session_ip'] = $user_ip;
         $_SESSION['session_id'] = $session_id;
-        $_SESSION['email'] = $email;
-        $_SESSION['admin'] = $admin;
-        $_SESSION['name'] = "$naam";
-        $_SESSION['account_id'] = $account_id;
+        $_SESSION['gebr'] = $gebruikersnaam;
+        $_SESSION['logged_in'] = true;
 
     } else {
 
@@ -63,8 +41,8 @@ function login_admin($email, $password)
 
 function check_login()
 {
-    if (isset($_SESSION['email'], $_SESSION['session_id'], $_SESSION['session_ip'], $_SESSION['admin'])) {
-        if ($_SESSION['admin'] == 'yes') {
+    if (isset($_SESSION['gebr'], $_SESSION['session_id'], $_SESSION['session_ip'], $_SESSION['recht'])) {
+        if ($_SESSION['recht'] == 'a') {
             return true;
         } else {
             return false;
@@ -74,31 +52,5 @@ function check_login()
     }
 }
 
-
-function currentDate()
-{
-
-    $datum = date("j M Y");
-
-    $month['Jan'] = "januari";
-    $month['Feb'] = "februari";
-    $month['Mar'] = "maart";
-    $month['Apr'] = "april";
-    $month['May'] = "mei";
-    $month['Jun'] = "juni";
-    $month['Jul'] = "juli";
-    $month['Aug'] = "augustus";
-    $month['Sep'] = "september";
-    $month['Oct'] = "oktober";
-    $month['Nov'] = "november";
-    $month['Dec'] = "december";
-
-    foreach ($month as $k => $v) {
-        $datum = str_replace($k, $v, $datum);
-    }
-
-    return $datum;
-
-}
 
 ?>
