@@ -16,7 +16,7 @@
         <div class="dropdown-content">
             <?php
             if ($_SESSION['recht'] != 'a') {
-                echo " <a href='admin'>Admin</a>";
+                echo " <a href='/admin/home'>Admin</a>";
             }
             ?>
             <a href="login">Login</a>
