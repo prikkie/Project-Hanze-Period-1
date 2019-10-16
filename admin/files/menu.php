@@ -20,7 +20,7 @@
             }
             ?>
             <a href="login">Login</a>
-            <a href="logout">Logout</a>
+            <a href="/logout">Logout</a>
 
         </div>
     </div>
