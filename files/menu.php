@@ -24,12 +24,13 @@
 
         </div>
     </div>
-</div>
+
 
 <?php
 } else {
     echo " <a href='login'>Login</a>";
 }
 ?>
+</div>
 
 
