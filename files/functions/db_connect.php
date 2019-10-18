@@ -8,9 +8,7 @@ $database = "u636479626_project";
 $conn = new mysqli($dbservername, $dbusername, $dbpassword, $database);
 
 // Check connection
-   if(! $conn )
-   {
-     die('Could not connect: ' . mysqli_error($conn));
-   }
+if (!$conn) {
+    die('Could not connect: ' . mysqli_error($conn));
+}
 
-?>

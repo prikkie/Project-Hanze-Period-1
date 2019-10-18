@@ -1,9 +1,8 @@
 <link href="/css/menu.css" rel="stylesheet" type="text/css"/>
 
 <div class="topnav" id="myTopnav">
-    <a href="home" class="active">Login</a>
-
-    <a href="home2">Home 2</a>
+    <a href="home" class="active">Home</a>
+    <a href="producten">Producten</a>
 
     <?php
     if ($_SESSION['logged_in'] == true){

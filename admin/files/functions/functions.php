@@ -1,4 +1,5 @@
 <?php
+
 if (!isset($_SESSION)) {
     session_start();
 }
@@ -11,10 +12,12 @@ function do_alert($msg)
 
 function login_admin($gebruikersnaam, $wachtwoord)
 {
+    global $conn;
     $user_ip = (sha1($_SERVER['REMOTE_ADDR']));
     $session_id = rand(1000, 1000000);
-
     $query = "SELECT * FROM users WHERE gebruikersnaam = '" . $gebruikersnaam . "' AND wachtwoord = '" . $wachtwoord . "' AND recht = 'a'";
+
+    mysqli_prepare($conn, $query);
     $result = mysqli_query($conn, $query) or die ("FOUT: " . mysqli_error($conn));
 
 

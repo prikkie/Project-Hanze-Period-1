@@ -1,9 +1,5 @@
 <?php
 
-if (!isset($_SESSION)) {
-    session_start();
-}
-
 include 'files/functions/functions.php';
 include 'files/functions/db_connect.php';
 

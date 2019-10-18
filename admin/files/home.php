@@ -1,10 +1,7 @@
 <?php
-if (isset($_POST['ww']) && isset($_POST['gebr'])) {
-
-}
 
 if ($_SESSION['logged_in'] == true) {
-
+    echo "hey!";
 
 } else {
     ?>
