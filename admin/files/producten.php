@@ -45,7 +45,7 @@ if ($_SESSION['logged_in'] == true) {
                     <td><?php echo $omschrijving ?> </td>
                     <td align="center"> <?php echo $voorraad ?> </td>
                     <td align="center"> <?php echo $actief ?> </td>
-                    <td>VERWIJDEREN AANPASSEN EN BEKIJKEN!?</td>
+                    <td align="center">VERWIJDEREN AANPASSEN EN BEKIJKEN!?</td>
                 </tr>
 
                 <?php

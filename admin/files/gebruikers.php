@@ -36,7 +36,7 @@ if ($_SESSION['logged_in'] == true) {
                     <td align="center"> <?php echo $email ?> </td>
                     <td align="center"> <?php echo $geslacht ?> </td>
                     <td align="center"> <?php echo $punten ?> </td>
-                    <td>VERWIJDEREN AANPASSEN EN BEKIJKEN!?</td>
+                    <td align="center">VERWIJDEREN AANPASSEN EN BEKIJKEN!?</td>
                 </tr>
 
                 <?php
