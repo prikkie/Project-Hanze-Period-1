@@ -3,6 +3,8 @@
 <div class="topnav" id="myTopnav">
     <a href="home" class="active">Home</a>
     <a href="producten">Producten</a>
+    <a href="gebruikers">Gebruikers</a>
+
 
     <?php
     if ($_SESSION['logged_in'] == true){
