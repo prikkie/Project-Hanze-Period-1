@@ -13,7 +13,7 @@ if ($result = $conn->query($query)) {
         $p_actief = $row["actief"];
 
         echo "<div id = 'wrappert'>";
-        if ($p_actief == 0) {
+        if ($p_actief == 1) {
             echo "<div class = 'product'>" .
                 "Hoi de naam van het product is " . $p_naam . " !" . "</br>" .
                 "<img src = images/$p_afbeelding.jpg>" . "</br>"

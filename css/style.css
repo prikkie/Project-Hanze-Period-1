@@ -59,8 +59,9 @@ body {
 }
 
 .product img {
-    width: 60%;
+    width: auto;
     height: auto;
+    max-height: 150px;
     border-radius: 10%;
 }
 

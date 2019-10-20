@@ -20,6 +20,7 @@ if ($_SESSION['logged_in'] == true) {
 
         if ($result = $conn->query($query)) {
             while ($row = $result->fetch_assoc()) {
+                $id = $row["id"];
                 $gebnaam = $row["gebruikersnaam"];
                 $naam = $row["naam"];
                 $adres = $row["adres"];

@@ -4,6 +4,7 @@
     <a href="home" class="active">Home</a>
     <a href="producten">Producten</a>
     <a href="gebruikers">Gebruikers</a>
+    <a href="punten">Spaarprogramma</a>
 
 
     <?php

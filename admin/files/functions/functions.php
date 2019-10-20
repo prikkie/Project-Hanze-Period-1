@@ -55,5 +55,15 @@ function check_login()
     }
 }
 
+function Punten_delete($id)
+{
+
+    echo "hey! $id";
+    $query = "delete from spaaracties where id = $id";
+    $conn->query($query);
+//    header("Refresh:0");
+
+}
+
 
 ?>

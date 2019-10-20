@@ -21,6 +21,7 @@ if ($_SESSION['logged_in'] == true) {
 
         if ($result = $conn->query($query)) {
             while ($row = $result->fetch_assoc()) {
+                $id = $row["id"];
                 $naam = $row["naam"];
                 $prijs = $row["prijs"];
                 $voorraad = $row["voorraad"];
