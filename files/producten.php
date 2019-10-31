@@ -20,7 +20,7 @@ if ($result = $conn->query($query)) {
                 . "Dit product kost: &euro;" . $p_prijs . "</br>"
                 . "Categorie: $p_categorie" . "</br>" . "</br>"
                 . "Omschrijving: $p_omschrijving" . "</br>"
-                . "<button type='button'>Voeg toe</button> "
+                . "<form method='post' action='winkelmandje.php'><button type='button' name='$p_naam'>Voeg toe</button> </form>"
                 . "</div>";
         }
         echo "</div>";

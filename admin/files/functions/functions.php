@@ -10,7 +10,7 @@ function do_alert($msg)
 }
 
 
-function login_admin($gebruikersnaam, $wachtwoord)
+function login($gebruikersnaam, $wachtwoord)
 {
     global $conn;
     $user_ip = (sha1($_SERVER['REMOTE_ADDR']));
