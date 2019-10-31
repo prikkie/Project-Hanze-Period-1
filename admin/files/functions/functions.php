@@ -57,13 +57,29 @@ function check_login()
 
 function Punten_delete($id)
 {
-
-    echo "hey! $id";
-    $query = "delete from spaaracties where id = $id";
+    global $conn;
+    $query = "delete from spaaracties where id = $id ";
     $conn->query($query);
-//    header("Refresh:0");
+    header("Location: /admin/punten");
 
 }
 
+function Gebruikers_delete($id)
+{
+    global $conn;
+    $query = "delete from users where id = $id ";
+    $conn->query($query);
+    header("Location: /admin/gebruikers");
+
+}
+
+function Product_delete($id)
+{
+    global $conn;
+    $query = "delete from products where id = $id ";
+    $conn->query($query);
+    header("Location: /admin/producten");
+
+}
 
 ?>

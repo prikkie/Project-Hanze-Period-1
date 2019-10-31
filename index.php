@@ -1,7 +1,9 @@
 <?php
 session_start();
-include 'files/functions/functions.php';
 require 'files/functions/db_connect.php';
+include 'files/shoppingcart.php';
+include 'files/functions/shoppingcart.php';
+
 
 //Kijkt welke pagina opgevraagd is, kijkt of het bestaat, veranderd $pagina. Bestaat deze niet? Gaat de gebruiker naar de home pagina
 if (isset($_GET['nav']) && file_exists('files/' . $_GET['nav'] . '.php')) {
@@ -9,6 +11,7 @@ if (isset($_GET['nav']) && file_exists('files/' . $_GET['nav'] . '.php')) {
 } else {
     header("Location: http://projecthanze.com/home");
 }
+$cart_products = initCart($conn);
 echo "<div id='header'>";
 include 'files/header.php';
 echo "</div>";
@@ -18,6 +21,7 @@ if ($pagina == "home") {
 
     echo "<div id='menu'>";
     include 'files/menu.php';
+
     echo "</div>";
 
 
@@ -39,7 +43,8 @@ if ($pagina == "home") {
 
     echo "<div id='winkelmandje'>";
     include 'files/winkelmandje.php';
-    echo "</div>";
+
+        echo "</div>";
 
 
     }

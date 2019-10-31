@@ -1,44 +1,48 @@
-<?php
-session_start();
-if (!isset($product_naam) {
-    exit('Geen producten in uw winkelmand');
-} else {
-    $product_naam = $_POST['p_naam'];
-}
-if (!isset($_POST['aantal'])) {
-    exit('Geen aantal meegezonden');
-} else {
-    $aantal = $_POST['aantal'];
-}
-if (empty($_SESSION['winkelmand'])) {
-    $_SESSION['winkelmand'] = $product_naam . ',' . $aantal;
-} else {
-    $wagen = explode('|', $_SESSION['winkelmand']);
-    $aantal_in_winkelmand = count($wagen);
-    $toevoegen = TRUE;
-    foreach ($wagen as $products) {
-        $product = explode(',', $products);
-        if ($product[0] == $product_naam) {
-            $product[1] = $product[1] + $aantal;
-            $toevoegen = FALSE;
-        }
-        $i++;
-        if ($i == 1) {
-            $_SESSION['winkelmand'] = $product[0] . ',' . $product[1];
+<img src="/images/shoppingcart.png" alt="shoppingcart" class="shoppingcart_img"/>
+<div class="shoppingcart">
+    <div class="overview">
+        <?php
+        if (count($cart_products)) {
+            foreach ($cart_products as $product) {
+                echo '<div class="item cart_item" data-id="' . $product["id"] . '">
+								<img src="images/' . $product["afbeelding"] . '.jpg" class="product_image"/>
+								<div class="product_info">
+
+									<div class="current_amount" data-id="' . $product["id"] . '">
+										<div class="amount_container">
+
+											<span class="amount">
+												' . (isset($_SESSION["cart"]["products"][$product["id"]]) ? $_SESSION["cart"]["products"][$product["id"]] : 0) . '
+											</span>
+											<span class="times">
+											x
+											</span>
+										</div>
+										<span class="price">
+											&euro;
+											<span class="product_price">' . $product["prijs"] . ' </span>
+										</span>
+
+									</div>
+									<span class="name">
+										' . $product["naam"] . '
+
+									</span>
+									<div class="quantity_change">
+											<img src="pictures/min.jpg" alt="minus" class="min cart_disable" data-id="' . $product["id"] . '"/>
+											<img src="pictures/plus.jpg" alt="plus" class="plus cart_disable" data-id="' . $product["id"] . '"/>
+									</div>
+								</div>
+							</div>';
+            }
+            echo '<div class="checkout"><button class="checkout_button">checkout</button></div>';
         } else {
-            $_SESSION['winkelmand'] = $_SESSION['winkelmand'] . '|' . $product[0] . ',' . $product[1];
+            echo '<div class="item no_products">No products added at the moment</div>';
         }
-    }
-    if ($toevoegen) {
-        $_SESSION['winkelmand'] = $_SESSION['winkelmand'] . '|' . $product_naam . ',' . $aantal;
-    }
-}
 
+        ?>
 
-$_SESSION['Aantal'] = 0;
-if (isset($_POST['Cola'])) {
-    echo $_POST['Cola'];
-} else {
-    echo "Niets in uw winkelmand!";
-}
+    </div>
+</div>
+
 

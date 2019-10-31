@@ -4,7 +4,8 @@
     <a href="home" class="active">Home</a>
     <a href="producten">Producten</a>
     <a href="home2">Home 2</a>
-    <a href="signup">Signup</a>
+    <a href="signup">Aanmelden</a>
+
     <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</button>
     <?php
     if ($_SESSION['logged_in'] == true){

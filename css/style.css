@@ -81,3 +81,20 @@ body {
 .product button:hover {
     opacity: 1;
 }
+
+.shoppingcart_img {
+    width: 50px;
+}
+
+.shoppingcart .overview .item .product_info .quantity_change img.plus {
+    width: 50px;
+}
+
+.shoppingcart .overview .item .product_info .quantity_change img.minus {
+    width: 50px;
+}
+
+.shoppingcart .overview .item img.product_image {
+    width: 50px;
+    float: left;
+}

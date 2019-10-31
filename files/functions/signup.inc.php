@@ -3,9 +3,12 @@ if (isset($_POST['signup-submit'])) {
     require 'db_connect.php';
 
     $username = $_POST['uid'];
+    $name = $_POST['name'];
+    $adres = $_POST['adr'];
     $email = $_POST['mail'];
     $password = $_POST['pwd'];
     $passwordRepeat = $_POST['pwd-repeat'];
+    $geslacht = $_POST['geslacht'];
 
     if (empty($username) || empty($email) || empty($password) || empty($passwordRepeat)) {
         header("location: /signup?error=emptyfields&uid=" . $username . "&mail=" . $email);
@@ -34,7 +37,7 @@ if (isset($_POST['signup-submit'])) {
                 header("location: /signup?error=usertaken&mail=" . $email);
                 exit();
             } else {
-                $sql = "INSERT INTO users (gebruikersnaam, email, wachtwoord) VALUES (?, ?, ?)";
+                $sql = "INSERT INTO users (gebruikersnaam, naam, adres, email, wachtwoord, geslacht) VALUES (?, ?, ?, ?, ?, ?)";
                 $stmt = mysqli_stmt_init($conn);
                 if (!mysqli_stmt_prepare($stmt, $sql)) {
                     header("location: /signup?error=sqlerror");
@@ -42,7 +45,7 @@ if (isset($_POST['signup-submit'])) {
                 } else {
                     $hashedPwd = password_hash($password, PASSWORD_DEFAULT);
 
-                    mysqli_stmt_bind_param($stmt, "sss", $username, $email, $hashedPwd);
+                    mysqli_stmt_bind_param($stmt, "ssssss", $username, $name, $adres, $email, $hashedPwd, $geslacht);
                     mysqli_stmt_execute($stmt);
                     header("location: /signup?signup=succes");
                     exit();

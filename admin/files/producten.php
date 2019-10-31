@@ -1,5 +1,8 @@
 <?php
 if ($_SESSION['logged_in'] == true) {
+    if (isset($_GET['did'])) {
+        Product_delete($_GET['did']);
+    }
     ?>
 
     <table>

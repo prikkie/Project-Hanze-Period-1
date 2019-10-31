@@ -1,3 +1,2 @@
-
 RewriteRule ^([^/.]+)/?$ index.php?nav=$1
-RewriteRule ^producten/u/([^/\.]+)/?$ index.php?nav=producten&id=$1 [L]
+RewriteRule ^producten/loc/bb/([^/\.]+)/?$ index.php?nav=producten&locatie=$1 [L]
