@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
 if (array_key_exists('add', $_GET)) {
     echo add($_GET['add']);
 
@@ -12,7 +14,6 @@ function add($product_id)
 {
     if (isset($_SESSION['cart']['products'][$product_id])) {
         $_SESSION['cart']['products'][$product_id] += 1;
-        echo "hey!";
     } else {
         $_SESSION['cart']['products'][$product_id] = 1;
     }

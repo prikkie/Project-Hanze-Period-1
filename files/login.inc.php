@@ -11,7 +11,7 @@ if (isset($_POST['login-submit'])) {
         exit();
     } else {
         $sql = "SELECT * FROM users WHERE uidUsers=? OR emailUsers=?; ";
-        $stmt = mysqli_stmt_init($connn);
+        $stmt = mysqli_stmt_init($conn);
         if (!mysqli_stmt_prepare($stmt, $sql)) {
             header("location: ../index.php?error=sqlerror");
             exit();
@@ -26,13 +26,13 @@ if (isset($_POST['login-submit'])) {
                     exit();
                 } elseif ($pwdcheck == true) {
                     session_start();
-                    $_SESSION['userId'] = $row['idUsers'];
-                    $_SESSION['userUid'] = $row['uidUsers'];
+                    $_SESSION['userId'] = $row['id'];
+                    $_SESSION['userUid'] = $row['gebruikersnaam'];
                     header("location: ../index.php?login=success");
                     exit();
 
                 } else {
-                    header("location: ../index.php?error=wrongpwd");
+                    header("location: ../index.php?error=wrottngpwd");
                     exit();
                 }
             } else {

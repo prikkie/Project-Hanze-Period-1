@@ -1,10 +1,9 @@
 <link href="/css/menu.css" rel="stylesheet" type="text/css"/>
 
 <div class="topnav" id="myTopnav">
-    <a href="home" class="active">Home</a>
-    <a href="producten">Producten</a>
-    <a href="home2">Home 2</a>
-    <a href="signup">Aanmelden</a>
+    <a href="http://projecthanze.com/home" class="active">Home</a>
+    <a href="http://projecthanze.com/producten">Producten</a>
+    <a href="http://projecthanze.com/signup">Aanmelden</a>
 
     <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</button>
     <?php
@@ -18,11 +17,11 @@
         <div class="dropdown-content">
             <?php
             if ($_SESSION['recht'] != 'a') {
-                echo " <a href='/admin/home'>Admin</a>";
+                echo " <a href='http://projecthanze.com/admin/home'>Admin</a>";
             }
             ?>
-            <a href="login">Login</a>
-            <a href="logout">Logout</a>
+            <a href="http://projecthanze.com/login">Login</a>
+            <a href="http://projecthanze.com/logout">Logout</a>
 
         </div>
     </div>
@@ -30,8 +29,8 @@
 
 <?php
 } else {
-    echo " <a href='login'>Login</a>";
-}
+
+    }
 ?>
 </div>
 

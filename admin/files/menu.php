@@ -2,29 +2,18 @@
 
 <div class="topnav" id="myTopnav">
     <a href="home" class="active">Home</a>
-    <a href="producten">Producten</a>
-    <a href="gebruikers">Gebruikers</a>
-    <a href="punten">Spaarprogramma</a>
+    <a href="http://projecthanze.com/admin/producten">Producten</a>
+    <a href="http://projecthanze.com/admin/gebruikers">Gebruikers</a>
+    <a href="http://projecthanze.com/admin/punten">Spaarprogramma</a>
 
 
     <?php
     if ($_SESSION['logged_in'] == true){
     ?>
-    <div class="dropdown">
-        <button class="dropbtn">Dropdown
-            <i class="fa fa-caret-down"></i>
-        </button>
-        <div class="dropdown-content">
-            <a href="login">Login</a>
-            <a href="logout">Logout</a>
 
-        </div>
-    </div>
-
+        <a href="http://projecthanze.com/admin/logout">Logout</a>
 
 <?php
-} else {
-    echo " <a href='login'>Login</a>";
 }
 ?>
 </div>

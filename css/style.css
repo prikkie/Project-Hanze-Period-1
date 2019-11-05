@@ -21,6 +21,7 @@ body {
 #winkelmandje {
     float: right;
     width: auto;
+    min-width: 200px;
     min-height: 37px;
     background: red;
 }
@@ -37,7 +38,7 @@ body {
     bottom: 0;
     height: 30px;
     width: 100%;
-    background: red;
+    background: rgba(0, 0, 0, 0.4);
 }
 
 .text {
@@ -78,6 +79,14 @@ body {
     font-size: 23px;
 }
 
+.product .plus {
+    width: 50px;
+}
+
+.product .min {
+    width: 50px;
+}
+
 .product button:hover {
     opacity: 1;
 }
@@ -87,14 +96,17 @@ body {
 }
 
 .shoppingcart .overview .item .product_info .quantity_change img.plus {
-    width: 50px;
+    max-width: 50px;
+    float: right;
 }
 
 .shoppingcart .overview .item .product_info .quantity_change img.minus {
-    width: 50px;
+    max-width: 50px;
+
 }
 
 .shoppingcart .overview .item img.product_image {
-    width: 50px;
+    max-width: 50px;
+    max-height: 50px;
     float: left;
 }

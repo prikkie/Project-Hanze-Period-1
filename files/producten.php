@@ -1,4 +1,7 @@
 <?php
+if (isset($_GET['locatie'])) {
+    $_SESSION['locatie'] = $_GET['locatie'];
+}
 
 $query = "SELECT * FROM products where actief = 1";
 
@@ -9,10 +12,10 @@ if ($result = $conn->query($query)) {
         echo
             '<div class="product" data-id="' . $product["id"] . '">
             
-							<img src="images/' . $product["afbeelding"] . '.jpg" class="product_image"/>
+							<img src="../images/' . $product["afbeelding"] . '.jpg" class="product_image"/>
 							<div class="product_name">
 								<b>
-								' . $product["id"] . '
+								
 									' . $product["naam"] . '
 								</b>
 							</div>
@@ -26,39 +29,14 @@ if ($result = $conn->query($query)) {
 								</span>
 							</div>
 
-							<img  src="images/min.jpg" alt="min" class="min cart_disable" data-id="' . $product["id"] . '"/>
-							<img src="images/plus.jpg" alt="plus" class="plus cart_disable" data-id="' . $product["id"] . '"/>
+							<img src="../images/min.jpg" alt="min" class="min cart_disable" data-id="' . $product["id"] . '"/>
+							<img src="../images/plus.jpg" alt="plus" class="plus cart_disable" data-id="' . $product["id"] . '"/>
 
 						</div>';
     }
 } else {
-    echo 'At the moment there are no special offers';
+    echo 'Geen producten aangeboden!';
 }
 
 
-//if ($result = $conn->query($query)) {
-//    while ($row = $result->fetch_assoc()) {
-//        $p_naam = $row["naam"];
-//        $p_prijs = $row["prijs"];
-//        $p_voorraad = $row["voorraad"];
-//        $p_afbeelding = $row["afbeelding"];
-//        $p_omschrijving = $row["omschrijving"];
-//        $p_categorie = $row["categorie"];
-//        $p_actief = $row["actief"];
-//
-//        echo "<div id = 'wrappert'>";
-//        if ($p_actief == 1) {
-//            echo "<div class = 'product'>" .
-//                "Hoi de naam van het product is " . $p_naam . " !" . "</br>" .
-//                "<img src = images/$p_afbeelding.jpg>" . "</br>"
-//                . "Dit product kost: &euro;" . $p_prijs . "</br>"
-//                . "Categorie: $p_categorie" . "</br>" . "</br>"
-//                . "Omschrijving: $p_omschrijving" . "</br>"
-//                . "<form method='post' action='winkelmandje.php'><button type='button' name='$p_naam'>Voeg toe</button> </form>"
-//                . "</div>";
-//        }
-//        echo "</div>";
-//    }
-//    $result->free();
-//}
 ?>

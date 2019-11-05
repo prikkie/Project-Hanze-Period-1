@@ -2,7 +2,6 @@
 
 function initCart($conn)
 {
-
     if (!isset($_SESSION['cart'])) {
         $_SESSION['cart']['products'] = '';
     }

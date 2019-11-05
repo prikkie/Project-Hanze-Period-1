@@ -1,6 +1,13 @@
 <?php
 if ($_SESSION['logged_in'] == true) {
+    if (isset($_GET['did'])) {
+        Gebruikers_delete($_GET['did']);
+    }
+    if (isset($_GET['sid'])) {
+        include 'editgebruiker.php';
+    }
     ?>
+    <a href="/admin/nieuw_gebruiker">Nieuwe gebruiker toevoegen!</a>
 
     <table>
         <tr>
@@ -37,7 +44,10 @@ if ($_SESSION['logged_in'] == true) {
                     <td align="center"> <?php echo $email ?> </td>
                     <td align="center"> <?php echo $geslacht ?> </td>
                     <td align="center"> <?php echo $punten ?> </td>
-                    <td align="center">VERWIJDEREN AANPASSEN EN BEKIJKEN!?</td>
+                    <td align="center"><a target="_self"
+                                          href="gebruikers/d/<?php echo $id ?>">Verwijderen</a></td>
+                    <td align="center"><a target="_self"
+                                          href="gebruikers/s/<?php echo $id ?>">Edit</a></td>
                 </tr>
 
                 <?php

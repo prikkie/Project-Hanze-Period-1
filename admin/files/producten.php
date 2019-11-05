@@ -3,8 +3,11 @@ if ($_SESSION['logged_in'] == true) {
     if (isset($_GET['did'])) {
         Product_delete($_GET['did']);
     }
+    if (isset($_GET['sid'])) {
+        include 'editproduct';
+    }
     ?>
-
+    <a href="/admin/nieuw_product">Nieuw product toevoegen!</a>
     <table>
         <tr>
             <th>Image</th>
@@ -49,7 +52,10 @@ if ($_SESSION['logged_in'] == true) {
                     <td><?php echo $omschrijving ?> </td>
                     <td align="center"> <?php echo $voorraad ?> </td>
                     <td align="center"> <?php echo $actief ?> </td>
-                    <td align="center">VERWIJDEREN AANPASSEN EN BEKIJKEN!?</td>
+                    <td align="center"><a target="_self"
+                                          href="producten/d/<?php echo $id ?>">Verwijderen</a>
+                    <td align="center"><a target="_self"
+                                          href="producten/s/<?php echo $id ?>">Edit</a>
                 </tr>
 
                 <?php

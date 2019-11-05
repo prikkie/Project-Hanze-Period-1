@@ -2,10 +2,11 @@
 <div class="shoppingcart">
     <div class="overview">
         <?php
+
         if (count($cart_products)) {
             foreach ($cart_products as $product) {
                 echo '<div class="item cart_item" data-id="' . $product["id"] . '">
-								<img src="images/' . $product["afbeelding"] . '.jpg" class="product_image"/>
+								<img src="pictures/' . $product["picture"] . '" class="product_image"/>
 								<div class="product_info">
 
 									<div class="current_amount" data-id="' . $product["id"] . '">
@@ -20,17 +21,17 @@
 										</div>
 										<span class="price">
 											&euro;
-											<span class="product_price">' . $product["prijs"] . ' </span>
+											<span class="product_price">' . $product["price"] . ' </span>
 										</span>
 
 									</div>
 									<span class="name">
-										' . $product["naam"] . '
+										' . $product["name"] . '
 
 									</span>
 									<div class="quantity_change">
-											<img src="pictures/min.jpg" alt="minus" class="min cart_disable" data-id="' . $product["id"] . '"/>
-											<img src="pictures/plus.jpg" alt="plus" class="plus cart_disable" data-id="' . $product["id"] . '"/>
+											<img src="projecthanze.com/images/min.jpg" alt="minus" class="minus cart_disable" data-id="' . $product["id"] . '"/>
+											<img src="projecthanze.com/images/plus.jpg" alt="plus" class="plus cart_disable" data-id="' . $product["id"] . '"/>
 									</div>
 								</div>
 							</div>';

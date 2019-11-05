@@ -1,0 +1,61 @@
+<?php
+if (isset($_GET['sid'])) {
+    $sid = $_GET['sid'];
+
+    $query = "SELECT omschrijving,punten FROM  spaaracties where id = $sid";
+
+    if ($result = $conn->query($query)) {
+        while ($row = $result->fetch_assoc()) {
+            $id = $row["id"];
+            $omschrijving = $row["omschrijving"];
+            $punten = $row["punten"];
+            $actief = $row["actief"];
+
+            if ($actief == 1) {
+                $actief = "Ja";
+            } else {
+                $actief = "Nee";
+            }
+            ?>
+
+            <section class="section-default">
+                <h2>Spaarprogramma toevoegen</h2>
+                <form action="" method="post">
+                    <table>
+                        <tr><td>Omschrijving</td><td><input type="text" value="<?php echo $omschrijving; ?>" required name="omschrijving"></td></tr>
+                        <tr><td>Punten</td><td><input type="text" value="<?php echo $punten; ?>" required name="punten"</td></tr>
+                        <tr><td>Actief</td><td>
+                                <select name="actief">
+                                    <option <?php if($actief == "Ja"){echo "selected";}else{}?> name="1">Ja</option>
+                                    <option <?php if($actief == "Nee"){echo "selected";}else{}?> name="0">Nee</option>
+                                </select></td></tr>
+                        <tr><td>Toevoegen</td><td><button type="submit" name="aanpassen">Aanpassen!</button></td></tr>
+                    </table>
+                </form>
+            </section>
+
+            <?php
+        }
+        $result->free();
+    }
+    ?>
+    <?php
+} else {
+    header("Location: http://projecthanze.com/admin/home");
+}
+
+$omschrijving = $_POST['omschrijving'];
+$punten = $_POST['punten'];
+$actief = $_POST['actief'];
+if($actief == "Ja"){
+    $actief = 1;
+}else{
+    $actief = 0;
+}
+
+
+if (isset($_POST['aanpassen'])) {
+    $query = "UPDATE spaaracties SET omschrijving = '$omschrijving', punten = '$punten', actief = '$actief' WHERE id = $sid";
+    $conn->query($query);
+    header("Location: /admin/punten");
+}

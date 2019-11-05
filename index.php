@@ -38,13 +38,13 @@ if ($pagina == "home") {
         ?>
     </div>
 <?php
-    if ($pagina == "home") {
+if ($pagina == "home" || $pagina == "signup") {
     } else {
 
     echo "<div id='winkelmandje'>";
     include 'files/winkelmandje.php';
 
-        echo "</div>";
+    echo "</div>";
 
 
     }

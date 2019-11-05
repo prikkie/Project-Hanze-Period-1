@@ -1,8 +1,7 @@
 disableShoppinCart = false;
-
 $(document).ready(function () {
 
-    $(document).on('click', '.min', function (e) {
+    $(document).on('click', '.minus', function (e) {
         product_id = $(this).data('id');
         $.get("/files/functions/shoppingcart.php?sub=" + product_id, {}, function (data) {
 
@@ -31,7 +30,7 @@ $(document).ready(function () {
                 var product_image = product.find('.product_image').attr('src');
                 var product_name = product.find('.product_name').text();
                 var product_price = product.find('.product_price').text();
-                var html_elem = '<div class="item cart_item" data-id="' + product_id + '"><img src="' + product_image + '" class="product_image"/><div class="product_info"> <div class="current_amount" data-id="' + product_id + '"> <div class="amount_container"><span class="amount">1</span><span class="times"> x </span></div><span class="price"> &euro; <span class="product_price">' + product_price + '</span></span></div><span>' + product_name + ' </span><div class="quantity_change"><img src="/images/min.jpg" alt="plus" class="minus cart_disable" data-id="' + product_id + '"/><img src="/images/plus.jpg" alt="plus" class="plus cart_disable" data-id="' + product_id + '"/></div></div></div>';
+                var html_elem = '<div class="item cart_item" data-id="' + product_id + '"><img src="' + product_image + '" class="product_image"/><div class="product_info"> <div class="current_amount" data-id="' + product_id + '"> <div class="amount_container"><span class="amount">1</span><span class="times"> x </span></div><span class="price"> &euro; <span class="product_price">' + product_price + '</span></span></div><span>' + product_name + ' </span><div class="quantity_change"><img src="/images/minus-sign.jpg" alt="plus" class="minus cart_disable" data-id="' + product_id + '"/><img src="/images/plus-sign.jpg" alt="plus" class="plus cart_disable" data-id="' + product_id + '"/></div></div></div>';
 
                 $('.overview').prepend(html_elem);
                 console.log($('.overview .cart_item').length);
@@ -55,7 +54,7 @@ $(document).ready(function () {
         window.location = '/checkout';
     });
 
-    // if(disableShoppinCart === true){
-    //     $(".winkelmandje").remove();
-    // }
+    if (disableShoppinCart === true) {
+        $(".shoppingcart_li").remove();
+    }
 });
